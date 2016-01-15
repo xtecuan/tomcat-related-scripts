@@ -58,7 +58,11 @@ function makeInstance(){
 		cp $CATALINA_HOME/bin/tomcat-juli.jar $CATALINA_HOME/instances/$instance/bin
 		cp $CATALINA_HOME/lib/cfmx_bootstrap-coldfusion9.jar $CATALINA_HOME/instances/$instance/bin/cfmx_bootstrap-coldfusion9.jar
 		cp $CATALINA_HOME/conf/instanceScript.txt $CATALINA_HOME/instances/$instance/bin/$instance.sh
-		chmod a+x $CATALINA_HOME/instances/$instance/bin/$instance.sh
+		cp $CATALINA_HOME/conf/start.txt $CATALINA_HOME/instances/$instance/bin/start.sh
+		echo "instanceManager.sh $instance start" >> $CATALINA_HOME/instances/$instance/bin/start.sh
+		cp $CATALINA_HOME/conf/stop.txt $CATALINA_HOME/instances/$instance/bin/stop.sh
+	        echo "instanceManager.sh $instance stop" >> $CATALINA_HOME/instances/$instance/bin/stop.sh
+		chmod a+x $CATALINA_HOME/instances/$instance/bin/*.sh
 	else
 		usage
 	fi 	

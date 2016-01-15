@@ -1,0 +1,45 @@
+{
+
+  "Service" : {
+	"name" : "Catalina",
+	"Connector" : [ 
+	      { 
+		"port" : 9085,
+		"protocol" : "HTTP/1.1",
+		"connectionTimeout" :  20000,
+		"redirectPort" : 10448	
+              },
+              {
+                "port" : 11009,
+                "protocol" : "AJP/1.3",
+                "redirectPort" : 10448,
+                "enableLookups" : false,
+                "tomcatAuthentication" : false 
+              }
+	],
+       "Engine" : {
+		"name" : "Catalina",
+		"defaultHost" : "localhost" ,
+		"jvmRoute" : "KNLSystemJulianr",
+		"Host" : {
+			"name " : "localhost",  
+			"appBase": "webapps",
+                  	"unpackWARs": true,
+			"autoDeploy" : true,
+		        "Valve" : {
+			 	"className": "org.apache.catalina.valves.AccessLogValve",
+				"directory": "logs",
+	                        "prefix": "localhost_KnlSystem-Julianr_access_log.", 
+				"suffix": ".txt",
+                       		"pattern" : "%h %l %u %t &quot;%r&quot; %s %b"
+		        },
+			"Context" : {
+				"path": "",
+				"docBase" : "/opt/knlservices/services/apache-tomcat-7.0.67/Sites/KNLSystem-Julianr",
+				"debug": "0"
+			}
+		}	
+       }
+  }
+
+}
