@@ -1,0 +1,22 @@
+#!/bin/bash
+## instance1.sh
+## This script export  specific export tings for tomcat7 instance1
+## Author: Julian Rivera Pineda
+## E-mail: xtecuan@gmail.com
+## Date: Dec 17, 2015
+
+export JAVA_HOME=/opt/knlservices/Java/jdk1.6.0_45
+export CATALINA_HOME=/opt/knlservices/services/apache-tomcat-7.0.67
+export INSTANCES_DIR=$CATALINA_HOME/instances
+export SOLR_HOME="-Dsolr.solr.home=/opt/knlservices/services/apache-tomcat-7.0.67/instances/KNLSystem-Solr/conf/solr-multicore"
+export JENKINS_HOME=/opt/knlservices/Java/jenkins/jenkins-etc
+export  PATH=$JAVA_HOME/bin:$CATALINA_HOME/bin:$PATH
+
+export  jmxport=13006
+export  gcinterval=3600000
+export  ssl=false
+export  authenticate=false
+
+
+
+export  CATALINA_OPTS="$CATALINA_OPTS $SOLR_HOME -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=$jmxport -Dcom.sun.management.jmxremote.ssl=$ssl -Dcom.sun.management.jmxremote.authenticate=$authenticate -Dsun.rmi.dgc.server.gcInterval=$gcinterval"

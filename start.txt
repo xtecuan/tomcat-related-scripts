@@ -1,0 +1,4 @@
+#!/bin/bash
+export PATH=/opt/knlservices/services/apache-tomcat-7.0.67/bin/admin/:$PATH 
+
+
